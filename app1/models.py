@@ -46,3 +46,6 @@ class Person(models.Model):
     subject = models.CharField(max_length=50, choices=SUBJECT_CHOICES)
     # id_job
     job = models.CharField(max_length=50, choices=JOB_CHOICES)
+
+    def __str__(self):
+        return f"{self.name}-{self.subject}-{self.job}"
