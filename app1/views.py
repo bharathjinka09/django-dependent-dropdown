@@ -12,6 +12,13 @@ def personform_page(request):
     context = {}
 
     personform = PersonForm()
+    if request.method == 'POST':
+        personform = PersonForm(request.POST)
+        if personform.is_valid():
+            personform.save()
+            personform = PersonForm()
+
+
     context['personform'] = personform
 
     cs_strings = get_cs_strings()
