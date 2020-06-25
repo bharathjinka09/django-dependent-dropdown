@@ -10,19 +10,9 @@ from .forms import PersonForm
 
 def personform_page(request):
     context = {}
-    if request.method == 'POST':
-        personform = PersonForm(request.POST)
-        if personform.is_valid():
-            # name = request.POST['name']
-            # subject = request.POST['subject']
-            # job = request.POST['job']
 
-            personform.save()
-            personform = PersonForm()
-            
-        else:
-            personform = PersonForm()
-        context['personform'] = personform
+    personform = PersonForm()
+    context['personform'] = personform
 
     cs_strings = get_cs_strings()
     b_strings = get_b_strings()
